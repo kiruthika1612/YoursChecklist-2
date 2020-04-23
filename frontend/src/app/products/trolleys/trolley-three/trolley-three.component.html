@@ -2,37 +2,34 @@
   <div class="w3-row">
     <div class="w3-third w3-padding-32">
       <br><br>
-      <button class="w3-button w3-black" [routerLink]="['/bags']"><i class="fa fa-chevron-circle-left"
+      <button class="w3-button w3-black" [routerLink]="['/trolleys']"><i class="fa fa-chevron-circle-left"
           aria-hidden="true"></i> &nbsp;&nbsp; Back</button>
     </div>
     <div class="w3-third w3-padding-32 w3-center">
-	<!-- helps to display different views of the product-->
-      <p-carousel [value]="bags" [numVisible]="1" [numScroll]="1" [circular]="true"
+      <p-carousel [value]="trolleys" [numVisible]="1" [numScroll]="1" [circular]="true"
         [responsiveOptions]="responsiveOptions" [style]="{'width':'600px', 'margin-top':'2em'}">
         <p-header>
-          <h3>DARK GREEN BAG</h3>
+          <h3>LIGHT BLUE TROLLEY</h3>
         </p-header>
-        <ng-template let-bags pTemplate="item">
+        <ng-template let-trolleys pTemplate="item">
           <div class="car-details">
             <div class="p-grid p-nogutter">
               <div class="p-col-12">
 			  <!-- we used widget-->
-                <img src="{{bags}}" />
+                <img src="{{trolleys}}" />
               </div>
             </div>
           </div>
         </ng-template>
         <p-footer>
-          <span>50.00 CAD</span>&nbsp;
-		  <!-- navigates to the payment page-->
-          <button class='w3-button w3-green' [routerLink]="['/payment/tb2']"> Buy </button>
+          <span>40.00 CAD</span>&nbsp;
+          <button class='w3-button w3-green' [routerLink]="['/payment/tt3']"> Buy </button>
           <br><br><span>30.00 CAD</span>&nbsp;
-           <button class='w3-button w3-orange' [routerLink]="['/payment/tb2']"> Rent </button>
+          <button class='w3-button w3-orange' [routerLink]="['/payment/tt3']"> Rent </button>
         </p-footer>
       </p-carousel>
     </div>
     <div class="w3-third w3-padding-32">
-
     </div>
   </div>
 </div>
