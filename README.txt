@@ -1,13 +1,17 @@
-comments to run backend terminal:
+------------------------------------
+COMMENTS AND QUERIES TO BE EXECUTED:
+------------------------------------
+
+1. comments to run backend terminal:
 	- npm istall
 	- node index.js
-comments to run forntend in terminal:
+2. comments to run forntend in terminal:
 	- npm install
 	- npm install -g @angular/cli 
 	- ng serve -o (to run the angular code)
 -------------------------------------------------------------------------------------------
 Queries to be executed in Mysql:
-
+--------------------------------
 use ycdb;
 
 CREATE TABLE Customers ( Cid int NOT NULL AUTO_INCREMENT,
