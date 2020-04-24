@@ -2,11 +2,12 @@ var express = require('express')
 var mysql = require('mysql');
 var cors = require('cors')
 var bodyParser = require('body-parser')
-
+// Database connection
 var con = mysql.createConnection({
     host: "localhost",
+    // User name and password of the respection database
     user: "root",
-    password: "password",
+    password: "RamMala@2708",
     database: "ycdb"
 });
 
@@ -24,12 +25,12 @@ con.connect(function (err) {
 //sample test
 app.get('/sample', (req, res) => {
 
-    res.send('Sending back response! Hi susa...');
+    res.send('Sending back response! Hi kiru...');
 
 })
 
 
-
+// inserting data from signup form into database
 app.post('/signup', (req, res) => {
 
     var customer = req.body;
@@ -50,6 +51,7 @@ app.post('/signup', (req, res) => {
 
 });
 
+// Validation User email address and password during login
 app.post('/authenticateCustomer', (req, res) => {
     var customer = req.body;
     console.log(customer);
@@ -115,6 +117,23 @@ app.post('/getmyproducts', (req, res) => {
             res.status(200)
             var response = { products: result, totalItems: result.length }
             res.send(response)
+        }
+
+    });
+});
+
+// Displaying user address on successful purchase
+app.get('/getUserDetails/:cid', (req, res) => {
+    var cid = req.params.cid;
+
+    var sql = "select LastName, FirstName, Email, DOB,  Streetno, Streetname, Complement ,City,Province,Country ,Postalcode from customers where Cid = ?";
+    con.query(sql, [cid], function (err, result) {
+        if (err) {
+            var response = { message: 'Failed Retrieve customer details.. Please retry..', statusCode: 400 }
+            res.send(response)
+        } else {
+            res.status(200)
+            res.send(result[0])
         }
 
     });
