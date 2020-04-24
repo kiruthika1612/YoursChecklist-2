@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomerService } from '../customer.service';
 import { Router } from '@angular/router';
+import { Customer } from '../model/customer';
 
 @Component({
   selector: 'app-purchase-success',
@@ -8,11 +10,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./purchase-success.component.css']
 })
 export class PurchaseSuccessComponent implements OnInit {
-
+  address: string = "";
   constructor(private custSvc: CustomerService, private router: Router) { }
 
   ngOnInit() {
+    var userData = "";
+    this.custSvc.getUserData().subscribe({
+      next: data => {
+        userData = data.Complement + " , " + data.Streetno + " , " + data.Streetname + " , " + data.City + " , " + data.Province + " , " + data.Postalcode + " , " + data.Country;
+        this.address = userData;
+      }
+    })
+
   }
+
+
 
   navigateToDashboard() {
     var userName = this.custSvc.userLoginInfo.cName;
@@ -23,3 +35,4 @@ export class PurchaseSuccessComponent implements OnInit {
     }
   }
 }
+
