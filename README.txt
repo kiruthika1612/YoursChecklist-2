@@ -12,6 +12,9 @@ COMMENTS AND QUERIES TO BE EXECUTED:
 -------------------------------------------------------------------------------------------
 Queries to be executed in Mysql:
 --------------------------------
+
+CREATE DATABASE ycdb;
+
 use ycdb;
 
 CREATE TABLE Customers ( Cid int NOT NULL AUTO_INCREMENT,
