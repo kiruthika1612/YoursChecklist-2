@@ -7,7 +7,7 @@ var con = mysql.createConnection({
     host: "localhost",
     // User name and password of the respection database
     user: "root",
-    password: "RamMala@2708",
+    password: "password",
     database: "ycdb"
 });
 
